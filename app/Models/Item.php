@@ -2,31 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Lumen\Auth\Authorizable;
 
-class Item extends Model implements AuthenticatableContract, AuthorizableContract
+class Item extends Model
 {
-    use Authenticatable, Authorizable;
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email',
-    ];
+    public function scopeOfCategory($query, $categoryId)
+    {
+        return $query->where('category_id', $categoryId);
+    }
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-    ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
