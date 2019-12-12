@@ -35,10 +35,10 @@ $router->group(
         $router->get("/{id}", "CategoriesController@show");
         $router->put("/{id}", "CategoriesController@update");
         $router->delete("/{id}", "CategoriesController@destroy");
-        $router->post("/{id}/items", "ItemsController@store");
-        $router->get("/{id}/items", "ItemsController@index");
-        $router->get("/{id}/items/{item_id}", "ItemsController@show");
-        $router->put("/{id}/items/{item_id}", "ItemsController@update");
-        $router->delete("/{id}/items/{item_id}", "ItemsController@destroy");
+        $router->post("/{id}/items", "ItemsController.php@store");
+        $router->get("/{id}/items", "ItemsController.php@index");
+        $router->get("/{id}/items/{item_id}", "ItemsController.php@show");
+        $router->put("/{id}/items/{item_id}", "ItemsController.php@update");
+        $router->delete("/{id}/items/{item_id}", "ItemsController.php@destroy");
     }
 );
