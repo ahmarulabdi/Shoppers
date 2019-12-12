@@ -41,4 +41,4 @@ $router->group(
         $router->put("/{id}/items/{item_id}", "ItemsController@update");
         $router->delete("/{id}/items/{item_id}", "ItemsController@destroy");
     }
-)
+);
